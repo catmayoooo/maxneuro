@@ -31,11 +31,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
   z-index: 1000;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
   width: fit-content;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 /* Logo */
@@ -45,7 +50,13 @@ a {
   color: white;
 }
 
-/* Nav Links */
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .nav-link {
   font-size: 14pt;
   padding: 6px 8px;
@@ -72,6 +83,49 @@ a {
   background-color: white;
   color: #2317CE;
   border: 1px solid #2317CE;
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+}
+
+/* Responsive Nav (Mobile) */
+@media (max-width: 768px) {
+  .top-nav {
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    border-radius: 12px;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
 }
 
 /* ─── Hero Section ─── */

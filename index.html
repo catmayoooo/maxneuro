@@ -8,91 +8,84 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Optional external font (keep if needed) -->
+  <!-- External font (if you use it) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- Navbar -->
-<header class="top-nav" id="site-nav">
-  <a href="index.html" class="logo">Max Neuro</a>
-  <nav class="nav-links">
-    <a href="about.html" class="nav-link">About</a>
-    <a href="products.html" class="nav-link">Products</a>
-    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-  </nav>
-</header>
+  <header class="top-nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Max Neuro</a>
 
-  <!-- Page content here -->
+      <div class="hamburger" id="hamburger">&#9776;</div>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="contact.html" class="nav-link contact-btn">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="page-content">
-    <!-- Example section -->
-    <section class="hero">
+    <!-- Hero / Intro Section -->
+    <section class="hero intro-hero">
       <div class="hero-content">
-        <h1>Welcome</h1>
-        <p>Your page content starts here.</p>
+        <h1>Max Neuro Supply</h1>
+        <p>Your trusted source for electroneurodiagnostic supplies, probes, and accessories.</p>
+        <a href="#products" class="cta-btn">Browse Products</a>
       </div>
     </section>
-  <main class="page-content">
 
-  <!-- Hero / Intro Section -->
-  <section class="hero intro-hero">
-    <div class="hero-content">
-      <h1>Max Neuro Supply</h1>
-      <p>Your trusted source for electroneurodiagnostic supplies, probes, and accessories.</p>
-      <a href="#products" class="cta-btn">Browse Products</a>
-    </div>
-  </section>
+    <!-- About / Mission Section -->
+    <section class="section about">
+      <h2>Who We Are</h2>
+      <p>
+        Max Neuro Supply is dedicated to delivering high‑quality, dependable neuro‑diagnostic tools and accessories to clinicians, hospitals, and labs worldwide. Our mission: to empower healthcare professionals with safe, effective, and accessible equipment — ensuring reliable patient care from day one.
+      </p>
+    </section>
 
-  <!-- About / Mission Section -->
-  <section class="section about">
-    <h2>Who We Are</h2>
-    <p>
-      Max Neuro Supply is dedicated to delivering high‑quality, dependable neuro‑diagnostic tools and accessories to clinicians, hospitals, and labs worldwide. Our mission: to empower healthcare professionals with safe, effective, and accessible equipment — ensuring reliable patient care from day one.
-    </p>
-  </section>
-
-  <!-- What We Offer / Services / Product Highlights -->
-  <section class="section services">
-    <h2>What We Offer</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>High‑Quality Stimulator Probes</h3>
-        <p>Precision‑made probes to support electroneurodiagnostic procedures with accuracy and safety.</p>
+    <!-- What We Offer / Services / Product Highlights -->
+    <section class="section services">
+      <h2>What We Offer</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>High‑Quality Stimulator Probes</h3>
+          <p>Precision‑made probes to support electroneurodiagnostic procedures with accuracy and safety.</p>
+        </div>
+        <div class="card">
+          <h3>Electrodes &amp; Accessories</h3>
+          <p>Complete range of electrodes, cables, and accessories compatible with major diagnostic systems.</p>
+        </div>
+        <div class="card">
+          <h3>Global Distribution</h3>
+          <p>We ship worldwide, supporting clinicians and institutions wherever they are located.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Electrodes &amp; Accessories</h3>
-        <p>Complete range of electrodes, cables, and accessories compatible with major diagnostic systems.</p>
+    </section>
+
+    <!-- Product Teaser / Gallery Placeholder -->
+    <section id="products" class="section product-preview">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">Product Image / Placeholder</div>
+        <div class="product-card">Product Image / Placeholder</div>
+        <div class="product-card">Product Image / Placeholder</div>
+        <!-- add more as needed -->
       </div>
-      <div class="card">
-        <h3>Global Distribution</h3>
-        <p>We ship worldwide, supporting clinicians and institutions wherever they are located.</p>
-      </div>
-    </div>
-  </section>
+      <a href="products.html" class="cta-btn">See All Products</a>
+    </section>
 
-  <!-- Product Teaser / Gallery Placeholder -->
-  <section id="products" class="section product-preview">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">Product Image / Placeholder</div>
-      <div class="product-card">Product Image / Placeholder</div>
-      <div class="product-card">Product Image / Placeholder</div>
-      <!-- add more as needed -->
-    </div>
-    <a href="products.html" class="cta-btn">See All Products</a>
-  </section>
+    <!-- Contact / Inquiry CTA Section -->
+    <section class="section inquiry">
+      <h2>Need Help or Custom Orders?</h2>
+      <p>Contact our support team for bulk orders, custom configurations or bulk‑pricing inquiries.</p>
+      <a href="contact.html" class="cta-btn">Contact Us</a>
+    </section>
 
-  <!-- Contact / Inquiry CTA Section -->
-  <section class="section inquiry">
-    <h2>Need Help or Custom Orders?</h2>
-    <p>Contact our support team for bulk orders, custom configurations or bulk‑pricing inquiries.</p>
-    <a href="contact.html" class="cta-btn">Contact Us</a>
-  </section>
-
-</main>
   </main>
 
-  <!-- Scroll‑nav JS -->
   <script src="script.js"></script>
 </body>
 </html>
