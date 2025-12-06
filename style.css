@@ -32,7 +32,7 @@ a {
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  z-index: 1000;
+  z-index: 10;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
 }
@@ -95,6 +95,9 @@ a {
 .page-content {
   padding-top: 100px;
 }
+.page-content.video-enabled {
+  padding-top: 0 !important;
+}
 
 /* ─── Hero Section ─── */
 .hero {
@@ -111,11 +114,14 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: left;
+  padding-left: 1vw;
 }
 
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+  text-align:left;
 }
 
 .hero-content p {
@@ -340,7 +346,6 @@ a {
   padding: 1rem;
   text-align: center;
   color: white;
-  margin-top: 4rem;
 }
 
 .product-card img {
@@ -418,11 +423,172 @@ a {
   color: #ddd;
 }
 
+
+/* ensure card images / placeholders fit well */
+.cards .card.placeholder {
+  /* optional: give subtle visual cue for placeholder — remove when real image */
+  background-color: rgba(255, 255, 255, 0.02); /* slightly lighter/darker if you like */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 200px; /* optional base height so card isn't too small */
+  color: #aaa;       /* placeholder text color */
+}
+/* ─── Video Hero setup ─── */
+.video-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+
+.video-hero .hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center */
+  align-items: flex-start;
+  padding-left: 5%;
+  padding-top: 500px; /* 👈 This pushes content downward */
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.video-hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.video-hero-content p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.video-hero-content .cta-btn {
+  font-size: 1.1rem;
+  padding: 0.85rem 2rem;
+  margin-top: -0.2rem;
+}
+
+/* ─── Cards with images filling full card ─── */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Prevent horizontal scroll — ensure body & html overflow-x hidden */
+html, body {
+  overflow-x: visible;
+}
+/* — Cards with images fill the card completely — */
+.image-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+/* --- About Page Hero (Image Background Like Homepage Video) --- */
+
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  background: url("images/image5.jpg") center center / cover no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  z-index: 0;
+  margin-top: 0;
+  padding-top: 0; 
+}
+
+
+/* Match homepage text position */
+.about-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+
+  padding-left: 2%;   /* same left padding as homepage */
+  padding-top: 35vh;  /* pushes text down just like homepage video hero */
+
+  max-width: 650px;
+}
+
+.about-hero .hero-content h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.about-hero .hero-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+/* --- FIXED SCROLL SPY SIDEBAR --- */
+.about-body-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 1rem;
+  position: relative; /* SAFE — does not break sticky */
+}
+
+.about-sidebar {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 120px;  /* works with your navbar */
+  align-self: flex-start;
+}
+
+
+/* Make sure navbar stays above the hero image */
+.top-nav {
+  z-index: 1000;
+}
+
+
 /* --- Mobile Version --- */
 @media (max-width: 768px) {
   .layout-two-column .about-body-wrapper {
     flex-direction: column;
-    padding: 2rem 1.25rem;
+    padding: 10rem 1rem;
   }
 
   .about-sidebar {
@@ -442,4 +608,20 @@ a {
     font-size: 1.1rem;
     text-align: left;
   }
+}
+/* --- FINAL FIX: About Hero flush under Navbar, no navy gap --- */
+.about-page .page-content {
+  padding-top: 0 !important; /* remove automatic padding pushing hero down */
+}
+
+.about-hero {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: 100vh !important;
+  background: url("images/image5.jpg") center center / cover no-repeat !important;
+}
+
+/* Make navbar always overlay hero */
+.top-nav {
+  z-index: 2000 !important;
 }

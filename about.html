@@ -25,18 +25,17 @@
 
   <main class="page-content about-page layout-two-column">
 
-    <!-- Hero / Intro Banner at top of About page -->
+    <!-- About Hero with flush‑left background image -->
     <section id="about-intro" class="about-hero hero">
       <div class="hero-content">
-        <h1>About Max Neuro</h1>
-        <p>Your trusted source for electroneurodiagnostic supplies, probes, and accessories.</p>
-        <a href="#who-we-are" class="cta-btn">Explore</a>
+        <h1>Our Story.<br>Our Mission.</h1>
+        <p>Your trusted source for electroneurodiagnostic<br>supplies, probes, and accessories.</p>
       </div>
     </section>
 
-    <!-- Two‑column container: left = tracker / toc, right = content -->
     <div class="about-body-wrapper">
 
+      <!-- Sidebar -->
       <nav class="about-sidebar">
         <ul>
           <li><a href="#who-we-are" class="sidebar-link">Who We Are</a></li>
@@ -45,26 +44,27 @@
         </ul>
       </nav>
 
+      <!-- Content -->
       <div class="about-content">
+
         <section id="who-we-are" class="about-section">
           <h2>Who We Are</h2>
-          <p>Max Neuro Supply is built on a simple but powerful belief: every clinician deserves access to neuro-diagnostic tools they can trust. We are dedicated to delivering high-quality stimulators, probes, electrodes, and accessories to hospitals, clinics, and laboratories around the globe. <br> 
-            But more than a supplier, we are a partner to the healthcare community. Our team is composed of people who deeply value innovation, precision, and the human lives behind every diagnostic decision. We collaborate closely with medical professionals to ensure the tools we deliver are not only effective but intuitive, dependable, and designed with patient well-being at the forefront. <br>
-             Driven by integrity and a commitment to excellence, Max Neuro Supply stands as a source of confidence for practitioners who demand the best — because the people they serve deserve nothing less.
+          <p>
+            Max Neuro Supply is built on a simple but powerful belief: every clinician deserves access to neuro-diagnostic tools they can trust. We are dedicated to delivering high-quality stimulators, probes, electrodes, and accessories to hospitals, clinics, and laboratories around the globe. <br> But more than a supplier, we are a partner to the healthcare community. Our team is composed of people who deeply value innovation, precision, and the human lives behind every diagnostic decision. We collaborate closely with medical professionals to ensure the tools we deliver are not only effective but intuitive, dependable, and designed with patient well-being at the forefront. <br> Driven by integrity and a commitment to excellence, Max Neuro Supply stands as a source of confidence for practitioners who demand the best — because the people they serve deserve nothing less.
+          </p>
         </section>
 
         <section id="why-we-started" class="about-section">
           <h2>Why We Started</h2>
-          <p>Max Neuro Supply was founded after witnessing a major challenge across neuro-diagnostic practices: critical tools were either difficult to access, inconsistent in quality, or priced beyond reach. Clinicians were forced to choose between affordability and reliability — a choice no medical professional should ever have to make. <br> 
-            We saw an opportunity to change that. By combining accessible pricing with uncompromising standards, we set out to deliver neuro-diagnostic equipment that practitioners could rely on every single day. Our goal was — and still is — to close the gap between what clinicians need and what was previously available to them. <br> 
-            At our core, we are driven by empathy for the practitioners who depend on these tools, the patients whose diagnoses rely on them, and the belief that better equipment leads to better outcomes. This is why we started, and this is why we continue to grow.
+          <p>
+            Max Neuro Supply was founded after witnessing a major challenge across neuro-diagnostic practices: critical tools were either difficult to access, inconsistent in quality, or priced beyond reach. Clinicians were forced to choose between affordability and reliability — a choice no medical professional should ever have to make. <br> We saw an opportunity to change that. By combining accessible pricing with uncompromising standards, we set out to deliver neuro-diagnostic equipment that practitioners could rely on every single day. Our goal was — and still is — to close the gap between what clinicians need and what was previously available to them. <br> At our core, we are driven by empathy for the practitioners who depend on these tools, the patients whose diagnoses rely on them, and the belief that better equipment leads to better outcomes. This is why we started, and this is why we continue to grow.
+          </p>
         </section>
 
         <section id="our-mission" class="about-section">
           <h2>Our Mission</h2>
-          <p>Our mission is to empower clinicians, hospitals, and laboratories with the most precise, dependable neuro-diagnostic tools possible. We are committed to advancing the field of neurological testing through careful craftsmanship, ongoing innovation, and a relentless focus on quality. <br> 
-            Every product we develop or distribute is held to strict standards because we know these tools play a direct role in diagnosis, treatment, and patient trust. We work continuously with healthcare professionals, engineers, and quality specialists to refine our offerings and bring forward solutions that improve accuracy, efficiency, and patient comfort. <br> 
-            At Max Neuro Supply, our mission extends beyond equipment. It is about supporting the entire medical community — ensuring that every practitioner, from small private practices to major hospitals, has the tools they need to deliver exceptional care. Technology, compassion, and integrity guide us as we help shape a future where reliable neuro-diagnostic solutions are accessible to all.
+          <p>
+            Our mission is to empower clinicians, hospitals, and laboratories with the most precise, dependable neuro-diagnostic tools possible. We are committed to advancing the field of neurological testing through careful craftsmanship, ongoing innovation, and a relentless focus on quality. <br> Every product we develop or distribute is held to strict standards because we know these tools play a direct role in diagnosis, treatment, and patient trust. We work continuously with healthcare professionals, engineers, and quality specialists to refine our offerings and bring forward solutions that improve accuracy, efficiency, and patient comfort. <br> At Max Neuro Supply, our mission extends beyond equipment. It is about supporting the entire medical community — ensuring that every practitioner, from small private practices to major hospitals, has the tools they need to deliver exceptional care. Technology, compassion, and integrity guide us as we help shape a future where reliable neuro-diagnostic solutions are accessible to all.
         </section>
 
       </div>
@@ -72,26 +72,31 @@
   </main>
 
   <script src="script.js"></script>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Hamburger logic — same as base
+
+      /* ---------------- HAMBURGER MENU (FIXED ID) ---------------- */
       const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('navLinks');
+      const navLinks = document.getElementById('nav-links');
+
       hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('show');
       });
 
-      // Scroll‑spy for about sections
+      /* ---------------- SCROLL SPY (NOW WORKS) ---------------- */
       const sidebarLinks = document.querySelectorAll('.about-sidebar .sidebar-link');
-      const sections = document.querySelectorAll('.about-content section');
+      const sections = document.querySelectorAll('.about-content .about-section');
 
       function onScrollSpy() {
-        const scrollPos = window.pageYOffset + 200;  // adjust offset if header overlaps
+        const scrollPos = window.pageYOffset + 200;
+
         sections.forEach(sec => {
           const top = sec.offsetTop;
           const bottom = top + sec.offsetHeight;
           const id = sec.getAttribute('id');
           const link = document.querySelector(`.about-sidebar a[href="#${id}"]`);
+
           if (scrollPos >= top && scrollPos < bottom) {
             sidebarLinks.forEach(l => l.classList.remove('active'));
             if (link) link.classList.add('active');
@@ -103,5 +108,6 @@
       onScrollSpy();
     });
   </script>
+
 </body>
 </html>
